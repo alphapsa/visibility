@@ -108,6 +108,24 @@ def visibility(target_name, telescope='CHEOPS'):
     print('{:s}: {:s}'.format(target_name, str_range))
         
     
+def max_solar_angle(target_name):
+    """Given target_name, computes the maximum angle between the target and the
+    Sun. Returns maximum angle in degrees.
+    """
+    target_coo = get_icrs_coordinates(target_name)
+    new_year = Time('2001-01-01')
+    max_sep = -1*u.deg
+
+    for n in range(1,365):
+        date = new_year + n*u.day
+        sun_gcrs = get_sun(date)
+        sun_icrs = SkyCoord(ra=sun_gcrs.ra, dec=sun_gcrs.dec)
+        sep = target_coo.separation(sun_icrs)        
+        if max_sep < sep:
+            max_sep = sep
+    print('{:.2f}'.format(max_sep))
+    return max_sep
+
 
 if __name__ == '__main__': 
 
@@ -128,5 +146,9 @@ if __name__ == '__main__':
     print('When during the year is TOI-500 visible to CHEOPS?') 
     visibility('TOI-500', telescope='CHEOPS')
     # Answer is "TOI-500: Not visible" (never)
+
+    print('What is the maximum angular distance between beta Pic and the Sun?')
+    max_solar_angle('beta Pic')
+    # Answer is 105.58 deg
 
     
