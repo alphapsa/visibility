@@ -1,7 +1,7 @@
 # visibility
 Computes CHEOPS and JWST visibility for any target during the year
 
-Predicts visibility for targets by CHEOPS and JWST
+Predicts visibility for targets by CHEOPS and JWST. 
 Accuracy for CHEOPS targets is +/- 1 day
 
 Only the Sun avoidance zone for the respective missions are
@@ -9,7 +9,8 @@ taken into account when evaluating visibility, not the
 instantaneous orbits of the space telescopes. This means that 
 e.g. the observing efficiency of CHEOPS is not estimated and
 the more complex visibility checker should be used to determine
-it.
+it. New: A CHEOPS visibility checker computing efficiencies is
+now available: https://github.com/alexishtz/CHEOPS_visibility
 
 Example of use:
 
