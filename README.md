@@ -10,7 +10,7 @@ instantaneous orbits of the space telescopes. This means that
 e.g. the observing efficiency of CHEOPS is not estimated and
 the more complex visibility checker should be used to determine
 it. New: A CHEOPS visibility checker computing efficiencies is
-now available: https://github.com/alexishtz/CHEOPS_visibility
+now available: https://gitlab.unige.ch/cheops/CHEOPS_visibility_tool
 
 Example of use:
 
