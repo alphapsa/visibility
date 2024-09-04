@@ -21,6 +21,8 @@ from astropy.coordinates import SkyCoord, get_sun, get_icrs_coordinates
 JWST_min_sep = 85*u.deg     # Minimum angle to sun for JWST target
 JWST_max_sep = 135*u.deg    # Maximum angle to sun for JWST target
 # Reference: https://jwst-docs.stsci.edu/methods-and-roadmaps/jwst-moving-target-observations/jwst-moving-target-supporting-technical-information/moving-target-field-of-regard#gsc.tab=0
+HST_min_sep = 50*u.deg      # Minimum angle to sun for HST target
+# Reference: https://asd.gsfc.nasa.gov/archive/sm3b/art/pdf/media-guide/sec6.pdf
 CHEOPS_min_sep = 120*u.deg  # Minimum angle to sun for CHEOPS target
 
 
@@ -62,6 +64,8 @@ def visible_coo(target_coo, date, telescope='CHEOPS'):
         return  ((sep > CHEOPS_min_sep) & 
                  (sep >= JWST_min_sep) &
                  (sep <= JWST_max_sep))
+    if telescope == 'HST':
+        return  sep >= HST_min_sep
     return  sep > CHEOPS_min_sep
 
 
