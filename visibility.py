@@ -132,6 +132,17 @@ def max_solar_angle(target_name):
     return max_sep
 
 
+def solar_angle(target_name, date):
+    """Given target_name and date, computes the angle between the target and the
+    Sun. Returns angle in degrees.
+    """
+    target_coo = get_icrs_coordinates(target_name, cache=True)
+    sun_gcrs = get_sun(Time(date))
+    sun_icrs = SkyCoord(ra=sun_gcrs.ra, dec=sun_gcrs.dec)
+    
+    return target_coo.separation(sun_icrs).to_value(u.deg)
+
+
 if __name__ == '__main__': 
 
 # Examples
