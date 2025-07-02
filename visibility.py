@@ -23,7 +23,7 @@ JWST_max_sep = 135*u.deg    # Maximum angle to sun for JWST target
 # Reference: https://jwst-docs.stsci.edu/methods-and-roadmaps/jwst-moving-target-observations/jwst-moving-target-supporting-technical-information/moving-target-field-of-regard#gsc.tab=0
 HST_min_sep = 50*u.deg      # Minimum angle to sun for HST target
 # Reference: https://asd.gsfc.nasa.gov/archive/sm3b/art/pdf/media-guide/sec6.pdf
-CHEOPS_min_sep = 120*u.deg  # Minimum angle to sun for CHEOPS target
+CHEOPS_min_sep = 116.5*u.deg  # Minimum angle to sun for CHEOPS target
 
 
 def cheops_vis(target_name, date_str):
